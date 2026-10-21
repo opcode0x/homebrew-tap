@@ -12,7 +12,5 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v7
-      - run: brew tap opcode0x/tap
-      - run: brew trust --formula opcode0x/tap/kubepin
       - run: brew install --build-from-source opcode0x/tap/kubepin
       - run: kubepin -h
