@@ -1,0 +1,16 @@
+name: Homebrew formula
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: brew install --build-from-source --formula ./Formula/kubepin.rb
+      - run: kubepin -h
